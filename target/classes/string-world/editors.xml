@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/string-world" prefix="string-world">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="StringWorld" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="StringWorld: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/string-world-connector-small.png" localId="config" image="icons/theme.classic/string-world-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/string-world/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="String-world configuration properties.">
+      <group id="string-worldGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractstring-worldconnectorgeneric" description="Interact with String-world." icon="icons/theme.classic/string-world-connector-small.png" localId="abstractString-worldConnectorGeneric" image="icons/theme.classic/string-world-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractString-worldConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/string-world/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.string-world" caption="StringWorld" description="" icon="icons/theme.classic/string-world-connector-small.png" localId="string-world-connector" image="icons/theme.classic/string-world-connector-large.png" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="string-worldConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="String-world operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/char-at" modeLabel="Char at"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/compare" modeLabel="Compare"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/concat" modeLabel="Concat"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/greet" modeLabel="Greet"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/index-of" modeLabel="Index of"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/lower-case" modeLabel="Lower case"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/string-world/upper-case" modeLabel="Upper case"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Character" caption="Char At" icon="icons/theme.classic/string-world-connector-small.png" localId="char-at" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+        <integer min="0" step="1" name="index" caption="Index" description="" required="true" javaType="int"></integer>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Boolean" caption="Compare" icon="icons/theme.classic/string-world-connector-small.png" localId="compare" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="String2" caption="String2" description="" required="true" javaType="java.lang.String"></string>
+        <string name="string1" caption="String1" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Concat" icon="icons/theme.classic/string-world-connector-small.png" localId="concat" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="text1" caption="Text1" description="" required="true" javaType="java.lang.String"></string>
+        <string name="text2" caption="Text2" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Greet" icon="icons/theme.classic/string-world-connector-small.png" localId="greet" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Name to be used to generate a greeting message." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Integer" caption="Index Of" icon="icons/theme.classic/string-world-connector-small.png" localId="index-of" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+        <string name="letter" caption="Letter" description="" required="true" javaType="char"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Lower Case" icon="icons/theme.classic/string-world-connector-small.png" localId="lower-case" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Upper Case" icon="icons/theme.classic/string-world-connector-small.png" localId="upper-case" image="icons/theme.classic/string-world-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/string-world/abstractString-worldConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="text" caption="Text" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
